@@ -1,0 +1,73 @@
+#:kivy 1.10.0
+
+<LeftLabel>:
+    text_size: self.size
+
+<HomeScreen>:
+
+    BoxLayout:
+        padding: 10
+        orientation: 'vertical'
+        GridLayout:
+            rows: 9
+            cols: 2
+            Label:
+                text: 'Prefix'
+            GridLayout:
+                rows: 1
+                cols: 4
+                ToggleButton:
+                    text: 'Mr.'
+                    group: 'prefix'
+                    state: 'down'
+                ToggleButton:
+                    text: 'Mrs.'
+                    group: 'prefix'
+                ToggleButton:
+                    text: 'Ms.'
+                    group: 'prefix'
+                ToggleButton:
+                    text: 'Judge'
+                    group: 'prefix'
+            LeftLabel:
+                text: 'First Name'
+            OneLineInput:
+                id: first_name_input
+            LeftLabel:
+                text: 'Last Name'
+            OneLineInput:
+                id: last_name_input
+            LeftLabel:
+                text: 'Prisoner Number'
+            OneLineInput:
+                id: prisoner_number_input
+            LeftLabel:
+                text: 'Institution'
+            OneLineInput:
+                id: institution_input
+            LeftLabel:
+                text: 'Address One'
+            TextInput:
+                id: address_one_input
+            LeftLabel:
+                text: 'Address Two'
+            OneLineInput:
+                id: address_two_input
+            LeftLabel:
+                text: 'City, State, Zipcode'
+            GridLayout:
+                rows: 1
+                cols: 3
+                OneLineInput:
+                    id: city_input
+                OneLineInput:
+                    id: state_input
+                OneLineInput:
+                    id: zipcode_input
+
+        MenuTab:
+            do_default_tab: False
+            TabbedPanelItem:
+                text: 'General\nLetters'
+            TabbedPanelItem:
+                text: 'Jurisdictionals'
