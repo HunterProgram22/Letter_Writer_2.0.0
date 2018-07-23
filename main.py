@@ -11,7 +11,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.textinput import TextInput
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.uix.behaviors.focus import FocusBehavior
-#from kivy.properties import NumericProperty, ObjectProperty
+from kivy.properties import NumericProperty, ObjectProperty
 from kivy.lang.builder import Builder
 
 from os import listdir
@@ -22,12 +22,42 @@ for kv in listdir(PATH):
 
 
 class HomeScreen(FloatLayout):
+    first_name = ObjectProperty()
+    last_name = ObjectProperty()
+    prisoner_number = ObjectProperty()
+    institution = ObjectProperty()
+    address_one = ObjectProperty()
+    address_two = ObjectProperty()
+    city = ObjectProperty()
+    state = ObjectProperty()
+    zipcode = ObjectProperty()
+
+    def clear_fields(self):
+        self.first_name.text = ""
+        self.last_name.text = ""
+        self.prisoner_number.text = ""
+        self.institution.text = ""
+        self.address_one.text = ""
+        self.address_two.text = ""
+        self.city.text = ""
+        self.state.text = ""
+        self.zipcode.text = ""
+
+    def print_fields(self):
+        print("The first name is: {text}.".format(text=self.first_name.text))
+
+
+class CustomDropDown(BoxLayout):
     pass
 
 
 class LeftLabel(Label):
     halign = 'left'
     valign = 'middle'
+
+
+class PlaceHolder(Label):
+    pass
 
 
 class OneLineInput(TextInput):

@@ -3,71 +3,105 @@
 <LeftLabel>:
     text_size: self.size
 
+<CustomDropDown>:
+    size_hint_y: None
+
 <HomeScreen>:
+    first_name: first_name_input
+    last_name: last_name_input
+    prisoner_number: prisoner_number_input
+    institution: institution_input
+    address_one: address_one_input
+    address_two: address_two_input
+    city: city_input
+    state: state_input
+    zipcode: zipcode_input
 
     BoxLayout:
-        padding: 10
         orientation: 'vertical'
-        GridLayout:
-            rows: 9
-            cols: 2
-            Label:
-                text: 'Prefix'
-            GridLayout:
-                rows: 1
-                cols: 4
-                ToggleButton:
-                    text: 'Mr.'
-                    group: 'prefix'
-                    state: 'down'
-                ToggleButton:
-                    text: 'Mrs.'
-                    group: 'prefix'
-                ToggleButton:
-                    text: 'Ms.'
-                    group: 'prefix'
-                ToggleButton:
-                    text: 'Judge'
-                    group: 'prefix'
-            LeftLabel:
-                text: 'First Name'
-            OneLineInput:
-                id: first_name_input
-            LeftLabel:
-                text: 'Last Name'
-            OneLineInput:
-                id: last_name_input
-            LeftLabel:
-                text: 'Prisoner Number'
-            OneLineInput:
-                id: prisoner_number_input
-            LeftLabel:
-                text: 'Institution'
-            OneLineInput:
-                id: institution_input
-            LeftLabel:
-                text: 'Address One'
-            TextInput:
-                id: address_one_input
-            LeftLabel:
-                text: 'Address Two'
-            OneLineInput:
-                id: address_two_input
-            LeftLabel:
-                text: 'City, State, Zipcode'
-            GridLayout:
-                rows: 1
-                cols: 3
-                OneLineInput:
-                    id: city_input
-                OneLineInput:
-                    id: state_input
-                OneLineInput:
-                    id: zipcode_input
 
-        MenuTab:
-            do_default_tab: False
-            TabbedPanelItem:
-                text: 'General\nLetters'
-            TabbedPanelItem:
-                text: 'Jurisdictionals'
+        CustomDropDown:
+            Button:
+                text: 'One'
+            Button:
+                text: 'Two'
+
+        BoxLayout:
+            padding: 10
+            orientation: 'vertical'
+            GridLayout:
+                rows: 9
+                cols: 3
+                LeftLabel:
+                    text: 'Prefix'
+                GridLayout:
+                    rows: 1
+                    cols: 4
+                    ToggleButton:
+                        text: 'Mr.'
+                        group: 'prefix'
+                        state: 'down'
+                    ToggleButton:
+                        text: 'Mrs.'
+                        group: 'prefix'
+                    ToggleButton:
+                        text: 'Ms.'
+                        group: 'prefix'
+                    ToggleButton:
+                        text: 'Judge'
+                        group: 'prefix'
+                PlaceHolder:
+                LeftLabel:
+                    text: 'First Name'
+                OneLineInput:
+                    id: first_name_input
+                BoxLayout:
+                    Button:
+                        text: 'Clear'
+                        on_press: root.clear_fields()
+                LeftLabel:
+                    text: 'Last Name'
+                OneLineInput:
+                    id: last_name_input
+                BoxLayout:
+                    Button:
+                        text: 'Print'
+                        on_press: root.print_fields()
+                LeftLabel:
+                    text: 'Prisoner Number'
+                OneLineInput:
+                    id: prisoner_number_input
+                PlaceHolder:
+                LeftLabel:
+                    text: 'Institution'
+                OneLineInput:
+                    id: institution_input
+                PlaceHolder:
+                LeftLabel:
+                    text: 'Address One'
+                TextInput:
+                    id: address_one_input
+                PlaceHolder:
+                LeftLabel:
+                    text: 'Address Two'
+                OneLineInput:
+                    id: address_two_input
+                PlaceHolder:
+                LeftLabel:
+                    text: 'City, State, Zipcode'
+                GridLayout:
+                    rows: 1
+                    cols: 3
+                    OneLineInput:
+                        id: city_input
+                    OneLineInput:
+                        id: state_input
+                    OneLineInput:
+                        id: zipcode_input
+
+            MenuTab:
+                do_default_tab: False
+                TabbedPanelItem:
+                    text: 'General\nLetters'
+                TabbedPanelItem:
+                    text: 'Jurisdictionals'
